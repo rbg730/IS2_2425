@@ -15,9 +15,11 @@ public class Contribuyente {
     
     private List<Vehiculo> vehiculos = new LinkedList<Vehiculo>();
 
-    //TODO
     public Contribuyente(String nombre, String apellido1, String apellido2, String dni) {
-		//TODO
+		this.nombre = nombre;
+		this.apellido1 = apellido1;
+		this.apellido2 = apellido2;
+		this.dni = dni;
 	}
     
     /**
@@ -61,7 +63,7 @@ public class Contribuyente {
     /**
      * Retorna el valor total de impuesto de circulacion 
      * a pagar por el contribuyente debido a todos sus vehiculos
-     * @return valor total del impuesto de circulación
+     * @return valor total del impuesto de circulacion
      */
     public double totalImpuestoCirculacion() {
     	double total=0.0;

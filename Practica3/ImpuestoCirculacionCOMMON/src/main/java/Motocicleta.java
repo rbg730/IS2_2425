@@ -11,7 +11,7 @@ public class Motocicleta extends Vehiculo {
 
 	public Motocicleta(long id, String matricula, LocalDate fechaMatriculacion, TipoMotor motor, int cilindrada) {
 		super(id, matricula, fechaMatriculacion, motor);
-		//TODO
+		this.cilindrada = cilindrada;
 	}
 
 	/**
@@ -23,8 +23,34 @@ public class Motocicleta extends Vehiculo {
 
 	@Override
 	public double precioImpuesto() {
-		//TODO
-		return 0;
+double impuesto = 0;
+		
+		if (this.cilindrada < 125) {
+			impuesto = 8;
+		} else if (this.cilindrada >= 125 && this.cilindrada < 250) {
+			impuesto = 15;
+		} else if (this.cilindrada >= 250 && this.cilindrada < 500) {
+			impuesto = 30;
+		} else if (this.cilindrada >= 500 && this.cilindrada < 1000) {
+			impuesto = 60;
+		} else if (this.cilindrada >= 1000) {
+			impuesto = 120;
+		}
+		
+		if (getFechaMatriculacion().isBefore(LocalDate.now().minusYears((25)))) {
+			impuesto = 0;
+		}
+		if (getMotor() == TipoMotor.ELECTRICO) {
+			impuesto = impuesto * getMotor().descuentoImpuesto;
+		}
+		if (getFechaMatriculacion().isBefore(LocalDate.now().minusYears(4)) && getMotor() == TipoMotor.HIBRIDO) {
+			impuesto = impuesto * 0.75;
+		}
+		if (getFechaMatriculacion().isBefore(LocalDate.now().minusYears(1)) && getMotor() == TipoMotor.GAS) {
+			impuesto = impuesto * getMotor().descuentoImpuesto;
+		}
+		return impuesto;
 	}
+	
 
 }

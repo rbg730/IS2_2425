@@ -42,7 +42,7 @@
 					<archive>
 						<manifest>
 							<mainClass>
-								es.unican.is2.ImpuestoCirculacionMain.Runner
+								es.unican.is2.practica3.Runner
 							</mainClass>
 						</manifest>
 					</archive>

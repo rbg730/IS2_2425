@@ -11,6 +11,20 @@ public class Turismo extends Vehiculo {
 	
 	public Turismo(long id, String matricula, LocalDate fechaMatriculacion, TipoMotor motor, double potencia) {
 		super(id, matricula, fechaMatriculacion, motor);
+
+		// Validación de fecha de matriculación no futura
+		if (fechaMatriculacion.isAfter(LocalDate.now())) {
+			throw new IllegalArgumentException("La fecha de matriculación no puede ser futura");
+		}
+
+		if (motor == null || !esTipoMotorValido(motor)) {
+			throw new IllegalArgumentException("El tipo de motor no es valido: " + motor);
+		}
+
+		if (potencia <= 0) {
+			throw new IllegalArgumentException("La potencia no puede ser negativa o 0.");
+		}
+
 		this.potencia = potencia;
 	}
 
@@ -50,6 +64,15 @@ public class Turismo extends Vehiculo {
 			impuesto = impuesto * getMotor().descuentoImpuesto;
 		}
 		return impuesto;
+	}
+
+	private boolean esTipoMotorValido(TipoMotor motor) {
+		try {
+			TipoMotor.valueOf(motor.name());  // Si el tipo de motor es válido, no lanza excepción
+			return true;
+		} catch (IllegalArgumentException e) {
+			return false;  // Si el tipo de motor no es válido, lanza una excepción
+		}
 	}
 
 }

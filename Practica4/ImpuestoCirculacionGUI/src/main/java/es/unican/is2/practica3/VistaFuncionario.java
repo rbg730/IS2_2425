@@ -92,6 +92,8 @@ public class VistaFuncionario extends JFrame {
 		txtDniContribuyente.setBounds(10, 51, 113, 20);
 		contentPane.add(txtDniContribuyente);
 		txtDniContribuyente.setColumns(10);
+		txtDniContribuyente.setName("txtDniContribuyente"); //Corregido el error de que no habia nombre
+
 
 		JLabel lblDniContribuyente = new JLabel("DNI Contribuyente");
 		lblDniContribuyente.setBounds(21, 27, 139, 14);

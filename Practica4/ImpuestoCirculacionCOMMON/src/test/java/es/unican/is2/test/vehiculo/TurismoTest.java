@@ -198,6 +198,7 @@ class TurismoTest {
             new Turismo(1, "1234CDD", LocalDate.now(), TipoMotor.valueOf("TRISCON"), 1); // TipoMotor no válido
         });
     }
+    
     @Test
     void testTurismo46() {
         assertThrows(IllegalArgumentException.class, () -> {

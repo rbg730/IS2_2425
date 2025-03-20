@@ -21,7 +21,7 @@ public class GestionImpuestoCirculacion implements IGestionContribuyentes, IGest
 	public Contribuyente contribuyente(String dni) throws DataAccessException {
 		Contribuyente contribuyente = contribuyenteDAO.contribuyente(dni);
 		if (contribuyente == null) {
-			throw new DataAccessException();
+			return null;
 		}
 		return contribuyente;
 	}

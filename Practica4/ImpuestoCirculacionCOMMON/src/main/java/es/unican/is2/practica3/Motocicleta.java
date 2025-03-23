@@ -11,22 +11,35 @@ public class Motocicleta extends Vehiculo {
 
 	public Motocicleta(long id, String matricula, LocalDate fechaMatriculacion, TipoMotor motor, int cilindrada) {
 		super(id, matricula, fechaMatriculacion, motor);
-		
+
+		// Validación de ID (debe ser mayor que 0)
+		if (id <= 0) {
+			throw new IllegalArgumentException("El ID debe ser mayor que 0");
+		}
+
+		// Validación de matrícula (Ejemplo válido: "1234BCD", inválido: "1234AEE")
+		if (!matricula.matches("\\d{4}[BCDFGHJKLMNPRSTVWXYZ]{3}")) {
+			throw new IllegalArgumentException("Matrícula inválida: " + matricula);
+		}
+
 		// Validación de fecha de matriculación no futura
 		if (fechaMatriculacion.isAfter(LocalDate.now())) {
 			throw new IllegalArgumentException("La fecha de matriculación no puede ser futura");
 		}
 
+		// Validación del tipo de motor
 		if (motor == null || !esTipoMotorValido(motor)) {
-			throw new IllegalArgumentException("El tipo de motor no es valido: " + motor);
+			throw new IllegalArgumentException("El tipo de motor no es válido: " + motor);
 		}
 
+		// Validación de cilindrada
 		if (cilindrada <= 0) {
-			throw new IllegalArgumentException("La potencia no puede ser negativa o 0.");
+			throw new IllegalArgumentException("La cilindrada no puede ser negativa o 0.");
 		}
-		
+
 		this.cilindrada = cilindrada;
 	}
+
 
 	/**
 	 * Retorna la cilindrada en CC de la motocicleta.

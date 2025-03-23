@@ -90,9 +90,13 @@ public class VistaFuncionario extends JFrame {
 
 		txtDniContribuyente = new JTextField();
 		txtDniContribuyente.setBounds(10, 51, 113, 20);
-		contentPane.add(txtDniContribuyente);
 		txtDniContribuyente.setColumns(10);
-		txtDniContribuyente.setName("txtDniContribuyente"); //Corregido el error de que no habia nombre
+		txtDniContribuyente.setName("txtDniContribuyente"); // Corregido el error de que no había nombre
+		contentPane.add(txtDniContribuyente);
+
+
+		System.out.println("Nombre: " + txtDniContribuyente.getName());
+		System.out.println("Visible: " + txtDniContribuyente.isShowing());
 
 
 		JLabel lblDniContribuyente = new JLabel("DNI Contribuyente");
@@ -121,7 +125,7 @@ public class VistaFuncionario extends JFrame {
 				txtNombreContribuyente.setText(c.getNombre() + " " + c.getApellido2() + " " + c.getApellido1());
 				txtTotalContribuyente.setText(df.format(c.totalImpuestoCirculacion()));
 				listModel.removeAllElements();
-				for (int i = 1; i < c.getVehiculos().size(); i++) {
+				for (int i = 0; i < c.getVehiculos().size(); i++) {
 					Vehiculo v = c.getVehiculos().get(i);
 					listModel.addElement(v.getMatricula());
 				}

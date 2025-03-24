@@ -90,13 +90,13 @@ public class VistaFuncionario extends JFrame {
 
 		txtDniContribuyente = new JTextField();
 		txtDniContribuyente.setBounds(10, 51, 113, 20);
+		contentPane.add(txtDniContribuyente);
 		txtDniContribuyente.setColumns(10);
 		txtDniContribuyente.setName("txtDniContribuyente"); // Corregido el error de que no había nombre
-		contentPane.add(txtDniContribuyente);
+		txtDniContribuyente.setVisible(true);
+		contentPane.setVisible(true);
+		this.setVisible(true);
 
-
-		System.out.println("Nombre: " + txtDniContribuyente.getName());
-		System.out.println("Visible: " + txtDniContribuyente.isShowing());
 
 
 		JLabel lblDniContribuyente = new JLabel("DNI Contribuyente");

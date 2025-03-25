@@ -1,12 +1,12 @@
-C:\Users\Ramon\Desktop\repositorio git local\IS2_2425\Practica4\ImpuestoCirculacionCOMMON\src\main\java\es\unican\is2\practica3\Contribuyente.java
-C:\Users\Ramon\Desktop\repositorio git local\IS2_2425\Practica4\ImpuestoCirculacionCOMMON\src\main\java\es\unican\is2\practica3\DataAccessException.java
-C:\Users\Ramon\Desktop\repositorio git local\IS2_2425\Practica4\ImpuestoCirculacionCOMMON\src\main\java\es\unican\is2\practica3\IContribuyentesDAO.java
-C:\Users\Ramon\Desktop\repositorio git local\IS2_2425\Practica4\ImpuestoCirculacionCOMMON\src\main\java\es\unican\is2\practica3\IGestionContribuyentes.java
-C:\Users\Ramon\Desktop\repositorio git local\IS2_2425\Practica4\ImpuestoCirculacionCOMMON\src\main\java\es\unican\is2\practica3\IGestionVehiculos.java
-C:\Users\Ramon\Desktop\repositorio git local\IS2_2425\Practica4\ImpuestoCirculacionCOMMON\src\main\java\es\unican\is2\practica3\IInfoImpuestoCirculacion.java
-C:\Users\Ramon\Desktop\repositorio git local\IS2_2425\Practica4\ImpuestoCirculacionCOMMON\src\main\java\es\unican\is2\practica3\IVehiculosDAO.java
-C:\Users\Ramon\Desktop\repositorio git local\IS2_2425\Practica4\ImpuestoCirculacionCOMMON\src\main\java\es\unican\is2\practica3\Motocicleta.java
-C:\Users\Ramon\Desktop\repositorio git local\IS2_2425\Practica4\ImpuestoCirculacionCOMMON\src\main\java\es\unican\is2\practica3\OperacionNoValidaException.java
-C:\Users\Ramon\Desktop\repositorio git local\IS2_2425\Practica4\ImpuestoCirculacionCOMMON\src\main\java\es\unican\is2\practica3\TipoMotor.java
-C:\Users\Ramon\Desktop\repositorio git local\IS2_2425\Practica4\ImpuestoCirculacionCOMMON\src\main\java\es\unican\is2\practica3\Turismo.java
-C:\Users\Ramon\Desktop\repositorio git local\IS2_2425\Practica4\ImpuestoCirculacionCOMMON\src\main\java\es\unican\is2\practica3\Vehiculo.java
+C:\Users\belmo\Desktop\is2\IS2_2425\Practica4\ImpuestoCirculacionCOMMON\src\main\java\es\unican\is2\COMMON\Contribuyente.java
+C:\Users\belmo\Desktop\is2\IS2_2425\Practica4\ImpuestoCirculacionCOMMON\src\main\java\es\unican\is2\COMMON\DataAccessException.java
+C:\Users\belmo\Desktop\is2\IS2_2425\Practica4\ImpuestoCirculacionCOMMON\src\main\java\es\unican\is2\COMMON\IContribuyentesDAO.java
+C:\Users\belmo\Desktop\is2\IS2_2425\Practica4\ImpuestoCirculacionCOMMON\src\main\java\es\unican\is2\COMMON\IGestionContribuyentes.java
+C:\Users\belmo\Desktop\is2\IS2_2425\Practica4\ImpuestoCirculacionCOMMON\src\main\java\es\unican\is2\COMMON\IGestionVehiculos.java
+C:\Users\belmo\Desktop\is2\IS2_2425\Practica4\ImpuestoCirculacionCOMMON\src\main\java\es\unican\is2\COMMON\IInfoImpuestoCirculacion.java
+C:\Users\belmo\Desktop\is2\IS2_2425\Practica4\ImpuestoCirculacionCOMMON\src\main\java\es\unican\is2\COMMON\IVehiculosDAO.java
+C:\Users\belmo\Desktop\is2\IS2_2425\Practica4\ImpuestoCirculacionCOMMON\src\main\java\es\unican\is2\COMMON\Motocicleta.java
+C:\Users\belmo\Desktop\is2\IS2_2425\Practica4\ImpuestoCirculacionCOMMON\src\main\java\es\unican\is2\COMMON\OperacionNoValidaException.java
+C:\Users\belmo\Desktop\is2\IS2_2425\Practica4\ImpuestoCirculacionCOMMON\src\main\java\es\unican\is2\COMMON\TipoMotor.java
+C:\Users\belmo\Desktop\is2\IS2_2425\Practica4\ImpuestoCirculacionCOMMON\src\main\java\es\unican\is2\COMMON\Turismo.java
+C:\Users\belmo\Desktop\is2\IS2_2425\Practica4\ImpuestoCirculacionCOMMON\src\main\java\es\unican\is2\COMMON\Vehiculo.java

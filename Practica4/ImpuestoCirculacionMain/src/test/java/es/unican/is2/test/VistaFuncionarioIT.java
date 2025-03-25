@@ -1,19 +1,11 @@
 package es.unican.is2.test;
 
 import es.unican.is2.practica3.*;
-
-import org.assertj.swing.core.BasicRobot;
-import org.assertj.swing.core.Robot;
 import org.assertj.swing.fixture.FrameFixture;
 import org.assertj.swing.fixture.JButtonFixture;
-import org.assertj.swing.fixture.JTextComponentFixture;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-
-import javax.swing.*;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class VistaFuncionarioIT {
@@ -44,6 +36,8 @@ public class VistaFuncionarioIT {
         JButtonFixture btnBuscar = window.button("btnBuscar"); // Busca el botón por su nombre
         btnBuscar.requireVisible(); // Verifica que el botón sea visible
         btnBuscar.click(); // Simula un clic en el botón
+        window.textBox("txtNombreContribuyente").requireText("DNI Incorrecto");
+        window.textBox("txtTotalContribuyente").requireText("0");
     }
 
     @Test
@@ -54,6 +48,15 @@ public class VistaFuncionarioIT {
         window.textBox("txtDniContribuyente").enterText("11111111A");
         
         window.button("btnBuscar").click();
+        
+        window.textBox("txtNombreContribuyente").requireText("Juan Lopez Perez");
+        window.textBox("txtTotalContribuyente").requireText("318,25");
+        
+
+        String[] listaEsperada = {"1111AAA", "1111BBB", "1111CCC"};
+        assertThat(window.list("listMatriculasVehiculos").contents()).containsExactly(listaEsperada);
+
+
 
         
     }

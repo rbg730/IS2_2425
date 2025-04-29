@@ -3,9 +3,9 @@ package es.unican.is2.BancoUC;
 
 public class Direccion {
 	
-	public String calle;
-	public String zip;
-	public String localidad;
+	private String calle;
+	private String zip;
+	private String localidad;
 	
 	public Direccion(String calle, String zip, String localidad) { //WMC +1
 		this.calle = calle;

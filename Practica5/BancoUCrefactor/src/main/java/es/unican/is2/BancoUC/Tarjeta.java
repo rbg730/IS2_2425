@@ -4,10 +4,12 @@ import java.time.LocalDate;
 
 public abstract class Tarjeta {
 	
-	protected String numero, titular, cvc;		
+	protected String numero;		
+	protected String  titular;
+	protected String  cvc;
 	protected CuentaAhorro cuentaAsociada;
 
-	public Tarjeta(String numero, String titular, String cvc,
+	protected Tarjeta(String numero, String titular, String cvc,
 			CuentaAhorro cuentaAsociada) { //WMC +1
 		this.numero = numero;
 		this.titular = titular;
@@ -18,20 +20,20 @@ public abstract class Tarjeta {
 	/**
 	 * Retirada de dinero en cajero con la tarjeta
 	 * @param x Cantidad a retirar. 
-	 * @throws saldoInsuficienteException
-	 * @throws datoErroneoException
+	 * @throws SaldoInsuficienteException
+	 * @throws DatoErroneoException
 	 */
-	public abstract void retirar(double x) throws saldoInsuficienteException, datoErroneoException; //WMC +1
+	public abstract void retirar(double x) throws SaldoInsuficienteException, DatoErroneoException; //WMC +1
 
 	/**
 	 * Pago en establecimiento con la tarjeta
 	 * @param datos Concepto del pago
 	 * @param x Cantidada a pagar
-	 * @throws saldoInsuficienteException
-	 * @throws datoErroneoException
+	 * @throws SaldoInsuficienteException
+	 * @throws DatoErroneoException
 	 */
 	public abstract void pagoEnEstablecimiento(String datos, double x) //WMC +1
-			throws saldoInsuficienteException, datoErroneoException;
+			throws SaldoInsuficienteException, DatoErroneoException;
 	
 	public LocalDate getCaducidad() { //WMC +1
 		return this.cuentaAsociada.getCaducidad();

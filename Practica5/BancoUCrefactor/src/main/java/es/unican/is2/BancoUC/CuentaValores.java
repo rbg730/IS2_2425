@@ -9,7 +9,7 @@ public class CuentaValores extends Cuenta {
 	
 	public CuentaValores(String numCuenta) {  //WMC +1
 		super(numCuenta);
-		valores = new LinkedList<Valor>();
+		valores = new LinkedList<>();
 	}
 	
 	public List<Valor> getValores() { //WMC +1

@@ -2,8 +2,9 @@ package es.unican.is2.Test;
 
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 import org.junit.jupiter.api.BeforeEach;
@@ -12,32 +13,35 @@ import org.junit.jupiter.api.Test;
 import es.unican.is2.BancoUC.CuentaValores;
 import es.unican.is2.BancoUC.Valor;
 
-public class CuentaValoresTest {
+ class CuentaValoresTest {
 	
-	private CuentaValores sut;
+	 CuentaValores sut;
 	
 	@BeforeEach
-	public void inicializa() {
+	 void inicializa() {
 		sut = new CuentaValores("794311");
 	}
 	
 	@Test
-	public void testConstructor() {
-		assertTrue(sut.getNumCuenta().equals("794311"));
-		assertTrue(sut.getValores().size()==0);
+	 void testConstructor() {
+		assertEquals("794311", sut.getNumCuenta());
+		assertEquals(0, sut.getValores().size());
+
 	}
 	
 	@Test
-	public void testAnhadeValor() {
+	 void testAnhadeValor() {
 		// CASOS VALIDOS
 		Valor v = new Valor("Telepizza", 25, 1.05);
-		assertTrue(sut.anhadeValor(v));
-		assertTrue(sut.getValores().size()==1);
+		assertEquals(true, sut.anhadeValor(v));
+		assertEquals(1, sut.getValores().size());
+
 		assertEquals(sut.getValores().get(0), v);
 		
 		v = new Valor("BancoSantander", 100, 200);
-		assertTrue(sut.anhadeValor(v));
-		assertTrue(sut.getValores().size()==2);
+		assertEquals(true, sut.anhadeValor(v));
+		assertEquals(2, sut.getValores().size());
+
 		assertEquals(sut.getValores().get(1), v);
 		
 		// CASOS NO VALIDOS

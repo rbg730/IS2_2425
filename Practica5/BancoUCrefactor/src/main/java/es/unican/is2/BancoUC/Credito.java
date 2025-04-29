@@ -5,27 +5,27 @@ import java.util.List;
 
 public class Credito extends Tarjeta {
 	
-	private double credito;
-	private List<Movimiento> MovimientosMensuales;
+	private double creditoI;
+	private List<Movimiento> movimientosMensuales;
 	private List<Movimiento> historicoMovimientos;
 	private static final double COMISION = 0.05;
 
 	public Credito(String numero, String titular, String cvc,
 			CuentaAhorro cuentaAsociada, double credito) { //WMC +1
 		super(numero, titular, cvc, cuentaAsociada);
-		this.credito = credito;
+		this.creditoI = credito;
 	}
 
 	/**
 	 * Retirada de dinero en cajero con la tarjeta
 	 * @param x Cantidad a retirar. Se aplica una comisi�n del 5%.
-	 * @throws saldoInsuficienteException
-	 * @throws datoErroneoException
+	 * @throws SaldoInsuficienteException
+	 * @throws DatoErroneoException
 	 */
 	@Override
-	public void retirar(double x) throws saldoInsuficienteException, datoErroneoException { //WMC +1
+	public void retirar(double x) throws SaldoInsuficienteException, DatoErroneoException { //WMC +1
 		if (x<0) // WMC +1 //CCog +1
-			throw new datoErroneoException("No se puede retirar una cantidad negativa");
+			throw new DatoErroneoException("No se puede retirar una cantidad negativa");
 		
 		Movimiento m = new Movimiento();
 		LocalDateTime now = LocalDateTime.now();
@@ -34,33 +34,33 @@ public class Credito extends Tarjeta {
 		x += x * COMISION; // Comision por operacion con tarjetas credito
 		m.setI(-x);
 		
-		if (getGastosAcumulados()+x > credito) // WMC +1 //CCog +1
-			throw new saldoInsuficienteException("Credito insuficiente");
+		if (getGastosAcumulados()+x > creditoI) // WMC +1 //CCog +1
+			throw new SaldoInsuficienteException("Credito insuficiente");
 		else { //CCog +1
-			MovimientosMensuales.add(m);
+			movimientosMensuales.add(m);
 		}
 	}
 
 	@Override
-	public void pagoEnEstablecimiento(String datos, double x) throws saldoInsuficienteException, datoErroneoException { // WMC +1
+	public void pagoEnEstablecimiento(String datos, double x) throws SaldoInsuficienteException, DatoErroneoException { // WMC +1
 		if (x<0) // WMC +1 //CCog +1
-			throw new datoErroneoException("No se puede retirar una cantidad negativa");
+			throw new DatoErroneoException("No se puede retirar una cantidad negativa");
 		
-		if (getGastosAcumulados() + x > credito) // WMC +1 //CCog +1
-			throw new saldoInsuficienteException("Saldo insuficiente");
+		if (getGastosAcumulados() + x > creditoI) // WMC +1 //CCog +1
+			throw new SaldoInsuficienteException("Saldo insuficiente");
 		
 		Movimiento m = new Movimiento();
 		LocalDateTime now = LocalDateTime.now();
 		m.setF(now);
 		m.setC("Compra a credito en: " + datos);
 		m.setI(-x);
-		MovimientosMensuales.add(m);
+		movimientosMensuales.add(m);
 	}
 	
     private double getGastosAcumulados() { // WMC +1
 		double r = 0.0;
-		for (int i = 0; i < this.MovimientosMensuales.size(); i++) { // WMC +1 //CCog +1
-			Movimiento m = (Movimiento) MovimientosMensuales.get(i);
+		for (int i = 0; i < this.movimientosMensuales.size(); i++) { // WMC +1 //CCog +1
+			Movimiento m = movimientosMensuales.get(i);
 			r += m.getI();
 		}
 		return r;
@@ -75,8 +75,8 @@ public class Credito extends Tarjeta {
 		liq.setF(now);
 		liq.setC("Liquidacion de operaciones tarjeta credito");
 		double r = 0.0;
-		for (int i = 0; i < this.MovimientosMensuales.size(); i++) { // WMC +1 //CCog +1
-			Movimiento m = (Movimiento) MovimientosMensuales.get(i);
+		for (int i = 0; i < this.movimientosMensuales.size(); i++) { // WMC +1 //CCog +1
+			Movimiento m = movimientosMensuales.get(i);
 			r += m.getI();
 		}
 		liq.setI(-r);
@@ -84,12 +84,12 @@ public class Credito extends Tarjeta {
 		if (r != 0) // WMC +1 //CCog +1
 			cuentaAsociada.addMovimiento(liq);
 		
-		historicoMovimientos.addAll(MovimientosMensuales);
-		MovimientosMensuales.clear();
+		historicoMovimientos.addAll(movimientosMensuales);
+		movimientosMensuales.clear();
 	}
 
 	public List<Movimiento> getMovimientosMensuales() { // WMC +1
-		return MovimientosMensuales;
+		return movimientosMensuales;
 	}
 	
 	public List<Movimiento> getMovimientos() { // WMC +1

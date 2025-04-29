@@ -1,5 +1,7 @@
 package es.unican.is2.BancoUC;
 
+import java.util.Objects;
+
 /**
  * Clase que representa un valor en bolsa (paquete de acciones). 
  * Cada valor contiene un n�mero de acciones 
@@ -38,10 +40,18 @@ public class Valor {
 	}
 	
 	@Override
-	public boolean equals(Object obj) { //WMC +1
-		Valor other = (Valor)obj;
-		return (entidad.equals(other.entidad) && numAcciones==other.numAcciones); //CCog +1
+	public boolean equals(Object obj) {
+	    if (this == obj) return true; // mismo objeto
+	    if (obj == null || getClass() != obj.getClass()) return false; // tipo incorrecto
 
+	    Valor other = (Valor) obj;
+	    return numAcciones == other.numAcciones &&
+	           entidad.equals(other.entidad);
 	}
+	
+	@Override
+    public int hashCode() {
+        return Objects.hash(entidad, numAcciones);
+    }
 
 }

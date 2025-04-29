@@ -10,18 +10,18 @@ public class Debito extends Tarjeta {
 	}
 
 	@Override
-	public void retirar(double x) throws saldoInsuficienteException, datoErroneoException { //WMC +1
+	public void retirar(double x) throws SaldoInsuficienteException, DatoErroneoException { //WMC +1
 		if (saldoDiarioDisponible<x) { //WMC +1 //CCgo +1
-			throw new saldoInsuficienteException("Saldo insuficiente");
+			throw new SaldoInsuficienteException("Saldo insuficiente");
 		}
 		this.cuentaAsociada.retirar("Retirada en cajero", x);
 		saldoDiarioDisponible-=x;
 	}
 	
 	@Override
-	public void pagoEnEstablecimiento(String datos, double x) throws saldoInsuficienteException, datoErroneoException { //WMC +1
+	public void pagoEnEstablecimiento(String datos, double x) throws SaldoInsuficienteException, DatoErroneoException { //WMC +1
 		if (saldoDiarioDisponible<x) { //WMC +1 //CCgo +1
-			throw new saldoInsuficienteException("Saldo insuficiente");
+			throw new SaldoInsuficienteException("Saldo insuficiente");
 		}
 		this.cuentaAsociada.retirar("Compra en : " + datos, x);
 		saldoDiarioDisponible-=x;

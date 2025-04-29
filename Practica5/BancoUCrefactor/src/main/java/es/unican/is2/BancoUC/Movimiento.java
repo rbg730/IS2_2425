@@ -1,6 +1,7 @@
 package es.unican.is2.BancoUC;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 public class Movimiento {
 	private String concepto;
@@ -33,9 +34,19 @@ public class Movimiento {
 
 	
 	@Override
-	public boolean equals(Object obj) { //WMC +1
-		Movimiento other = (Movimiento)obj;
-		return (concepto.equals(other.concepto) && fecha.equals(other.fecha)&& importe==other.importe); //CCgo +1
+	public boolean equals(Object obj) {
+	    if (this == obj) return true;
+	    if (!(obj instanceof Movimiento)) return false;
+
+	    Movimiento other = (Movimiento) obj;
+	    return Double.compare(other.importe, importe) == 0 &&
+	           java.util.Objects.equals(concepto, other.concepto) &&
+	           java.util.Objects.equals(fecha, other.fecha);
 	}
+	
+	@Override
+    public int hashCode() {
+        return Objects.hash(concepto, fecha, importe);
+    }
 	
 }

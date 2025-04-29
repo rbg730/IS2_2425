@@ -5,14 +5,14 @@ import java.util.List;
 
 public class Cliente {
 	
-	public String nombre;
-	public String telefono;
-	public Direccion direccion;
-	public String dni;
+	private String nombre;
+	private String telefono;
+	private Direccion direccion;
+	private String dni;
 	
-    private List<Cuenta> Cuentas = new LinkedList<Cuenta>(); 
+    private List<Cuenta> cuentas = new LinkedList<>(); 
     
-    private List<Tarjeta> tarjetas = new LinkedList<Tarjeta>(); 
+    private List<Tarjeta> tarjetas = new LinkedList<>(); 
  	public Cliente(String titular, Direccion direccion, 
  			String telefono, String dni) {   //WMC +1
 		this.nombre = titular;
@@ -26,7 +26,7 @@ public class Cliente {
 	}
 	
 	public void anhadeCuenta(Cuenta c) { // WMC +1 CCgo 0
-		Cuentas.add(c);
+		cuentas.add(c);
 	}
 	
 	public void anhadeTarjeta(Tarjeta t) { // WMC +1
@@ -36,7 +36,7 @@ public class Cliente {
 	
 	public double getSaldoTotal() { //WMC +1
 		double total = 0.0;
-		for (Cuenta c: Cuentas) { // WMC + 1  CCgo +1 
+		for (Cuenta c: cuentas) { // WMC + 1  CCgo +1 
 			if (c instanceof CuentaAhorro) { //WMC +1 CCgo +2
 				total += ((CuentaAhorro) c).getSaldo();
 			} else if (c instanceof CuentaValores)  { // WMC +1 CCgo +2
